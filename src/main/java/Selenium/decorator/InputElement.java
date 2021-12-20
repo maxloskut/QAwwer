@@ -9,9 +9,9 @@ public class InputElement extends CustomElement{
         super(webElement);
     }
 
-    public void sendKeys(String login) {
-        System.out.println("input "+login);
-        getWebElement().sendKeys(login);
+    public void sendKeys(String text) {
+        System.out.println("input "+text);
+        getWebElement().sendKeys(text);
     }
 }
 

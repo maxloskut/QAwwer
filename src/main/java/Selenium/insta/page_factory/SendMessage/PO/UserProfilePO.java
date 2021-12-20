@@ -1,12 +1,11 @@
 package Selenium.insta.page_factory.SendMessage.PO;
 
 import Selenium.decorator.ClickButtonElement;
-import Selenium.insta.page_factory.login.PO.HomePO;
+import Selenium.insta.page_factory.BasicPO;
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class UserProfilePO  extends  Basic2PO{
+public class UserProfilePO  extends BasicPO {
 
     @FindBy(xpath = "//*[@data-testid=\"user-avatar\"]")
     private ClickButtonElement userLogo;

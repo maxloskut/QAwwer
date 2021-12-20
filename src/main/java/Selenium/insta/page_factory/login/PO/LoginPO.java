@@ -2,6 +2,7 @@ package Selenium.insta.page_factory.login.PO;
 
 import Selenium.decorator.ClickButtonElement;
 import Selenium.decorator.InputElement;
+import Selenium.insta.page_factory.BasicPO;
 import Selenium.insta.paralel_run.BrowserFactory;
 import io.qameta.allure.Link;
 import io.qameta.allure.Step;

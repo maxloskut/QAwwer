@@ -1,8 +1,7 @@
 package Selenium.insta.page_factory.Subscribe.PO;
 
 import Selenium.decorator.ClickButtonElement;
-import Selenium.insta.page_factory.login.PO.BasicPO;
-import Selenium.insta.page_factory.login.PO.HomePO;
+import Selenium.insta.page_factory.BasicPO;
 import Selenium.insta.paralel_run.BrowserFactory;
 import Tread.PropertyUtil;
 import io.qameta.allure.Link;

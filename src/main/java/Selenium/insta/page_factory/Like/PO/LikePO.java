@@ -5,7 +5,11 @@ import Selenium.insta.paralel_run.BrowserFactory;
 import Tread.PropertyUtil;
 import io.qameta.allure.Link;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LikePO  extends PhotoPO{
 
@@ -17,8 +21,10 @@ public class LikePO  extends PhotoPO{
 
     @Step("LikePhoto")
     public LikePO likePhoto() {
-        LikeButton.click();
-        return new LikePO();
+        WebDriverWait waiter= new WebDriverWait( BrowserFactory.getDriver(),2);
+        WebElement likeButtonClickable = waiter.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class=\"fr66n\"] /*[@class=\"wpO6b  \" ]")));
+        likeButtonClickable.click();
+        return this;
     }
 
     @Step("goToUserPage")

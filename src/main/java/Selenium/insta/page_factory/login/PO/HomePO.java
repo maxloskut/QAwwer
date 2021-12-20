@@ -1,7 +1,7 @@
 package Selenium.insta.page_factory.login.PO;
 
 import Selenium.decorator.ClickButtonElement;
-import Selenium.insta.page_factory.login.PO.BasicPO;
+import Selenium.insta.page_factory.BasicPO;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 

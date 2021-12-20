@@ -2,32 +2,41 @@ package Selenium.insta.page_factory.Comment.PO;
 
 import Selenium.decorator.ClickButtonElement;
 import Selenium.decorator.InputComment;
+import Selenium.decorator.InputElement;
 import Selenium.insta.paralel_run.BrowserFactory;
 import Tread.PropertyUtil;
 import io.qameta.allure.Link;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CommentPO extends Photo1PO {
-
-    @FindBy(xpath = "//*[@class=\"fr66n\"] /*[@class=\"wpO6b  \" ]")
-    private ClickButtonElement commentButton;
-
-    @FindBy(xpath = "//*[@style=\"height: 18px !important;\"]")
-    private InputComment commentInput;
+public class CommentPO extends PhotoPO {
 
 
-    @Step("inputMessage")
+
+    @FindBy(xpath = "//*[@data-testid=\"post-comment-text-area\"]")
+    private InputElement commentAreaInput;
+
+    @FindBy(xpath = "//*[@data-testid=\"post-comment-input-button\"]")
+    private ClickButtonElement sendComment;
+
+    @Step("inputComment")
     public CommentPO inputComment(String comment) {
-        commentInput.sendKeys(comment);
+        WebDriverWait waiter= new WebDriverWait( BrowserFactory.getDriver(),2);
+        WebElement commentInputable = waiter.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@data-testid=\"post-comment-text-area\"]")));
+        commentInputable.click();
+        commentAreaInput.sendKeys(comment);
         return this;
     }
 
 
-    @Step("LikePhoto")
+    @Step("commentPhotoButton")
     public CommentPO commentPhoto() {
-        commentButton.click();
-        return new CommentPO();
+        sendComment.click();
+        return this;
     }
 
     @Step("goToUserPage")
