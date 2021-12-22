@@ -1,7 +1,6 @@
 package Selenium.insta.page_factory.Comment.PO;
 
 import Selenium.decorator.ClickButtonElement;
-import Selenium.decorator.InputComment;
 import Selenium.decorator.InputElement;
 import Selenium.insta.paralel_run.BrowserFactory;
 import Tread.PropertyUtil;
