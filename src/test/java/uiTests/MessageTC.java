@@ -18,7 +18,9 @@ public class MessageTC extends BaseTest {
         return new Object[][]{
                 {"chrome"}
                 //,{"firefox"}
-                //,{"chrome"}
+                //,{"Opera"}
+                //,{"IE"}
+                //,{"Safari"}
         };
     }
 

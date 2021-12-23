@@ -18,7 +18,9 @@ public class LikeTC extends BaseTest {
         return new Object[][]{
                 {"chrome"}
                 //,{"firefox"}
-                //,{"chrome"}
+                //,{"Opera"}
+                //,{"IE"}
+                //,{"Safari"}
         };
     }
 

@@ -4,7 +4,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class BrowserFactory {
     private final static ThreadLocal<WebDriver> INSTANCE =new InheritableThreadLocal<>();
@@ -24,6 +28,18 @@ public class BrowserFactory {
             case "firefox" -> {
                 WebDriverManager.firefoxdriver().setup();
                 INSTANCE.set(new FirefoxDriver());
+            }
+            case "IE" -> {
+                WebDriverManager.iedriver().setup();
+                INSTANCE.set(new InternetExplorerDriver());
+            }
+            case "Opera" -> {
+                WebDriverManager.operadriver().setup();
+                INSTANCE.set(new OperaDriver());
+            }
+            case "Safari" -> {
+                WebDriverManager.safaridriver().setup();
+                INSTANCE.set(new SafariDriver());
             }
             default -> throw new RuntimeException("invalid browser " + browserName);
         }

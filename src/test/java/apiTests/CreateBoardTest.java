@@ -11,18 +11,9 @@ public class CreateBoardTest {
 
     @Test
     public void createBoardTest(){
+
         trelloBO.create();
     }
-/*
-   @Test
-    public void createAndDeleteBoardTest(){
-        //Step_1
-        String boardId=trelloBO.create();
-        //Step_2
-        Response deleteResponse=trelloBO.delete(boardId);
-        //Validate
-        Assert.assertEquals(deleteResponse.getStatusCode().intValue(),200,"invalid code");
-    }
-*/
+
 
 }
