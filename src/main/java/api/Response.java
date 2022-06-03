@@ -10,6 +10,7 @@ public class    Response {
     private String body;
 
     private Integer statusCode;
+    private String attachment;
     private String statusMessage;
     private Map<String, List<String>> headerMap;
 
@@ -25,6 +26,10 @@ public class    Response {
 
     public Integer getStatusCode() {
         return statusCode;
+    }
+
+    public String getAttachment() {
+        return attachment;
     }
 
     public void setStatusCode(Integer statusCode) {

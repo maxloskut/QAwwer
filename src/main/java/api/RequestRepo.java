@@ -13,8 +13,8 @@ public class RequestRepo {
         return request;
     }
 
-    private final static String KEY="95444cd1c94ed3ba021fb91aa204969e";
-    private final static String TOKEN="6b0b4d3e16b0814601e849157b2938b124f12031bcc9c9feba5e64404cc74c58";
+    private final static String KEY = "bf24871cd382840b7c99eb1cb0364f77";
+    private final static String TOKEN = "d80b0a71e57109e36cde177c6eb2076e75f211d2136310601355ccda71ab586f";
 
 
 
@@ -61,7 +61,7 @@ public class RequestRepo {
 
     public static Request renameBoard(String boardID, String newNameForBoard) {
         Request request=baseTrelloRequest();
-        request.setPath("1/boards/"+boardID +"?&key="+KEY + "&token="+TOKEN +"&name=" + newNameForBoard);
+        request.setPath("1/boards/" + boardID + "?&key=" + KEY + "&token=" + TOKEN +"&name=" + newNameForBoard);
         request.setMethod("PUT");
         return request;
     }
@@ -79,6 +79,55 @@ public class RequestRepo {
         request.setPath("1/boards/"+boardId+"?key="+KEY +
                 "&token="+TOKEN);
         request.setMethod("DELETE");
+        return request;
+    }
+
+    public static Request addSticker(String cardId, String top, String left, String zIndex, String image) {
+        Request request=baseTrelloRequest();
+        request.setPath("1/cards/" + cardId + "/stickers?image=" + image + "&top=" + top + "&left=" + left + "&zIndex=" + zIndex + "&key=" + KEY + "&token=" + TOKEN);
+        request.setMethod("POST");
+        return request;
+    }
+
+    public static Request moveCardToList(String secondListId, String boardId, String idList) {
+        Request request=baseTrelloRequest();
+        request.setPath("1/lists/" + secondListId + "/moveAllCards?idBoard=" + boardId + "&idList=" + idList + "&key=" + KEY + "&token=" + TOKEN);
+        request.setMethod("POST");
+        return request;
+    }
+
+    public static Request addComment(String cardId, String commentText) {
+        Request request=baseTrelloRequest();
+        request.setPath("1/cards/" + cardId + "/actions/comments?text=" + commentText + "&key=" + KEY + "&token=" + TOKEN);
+        request.setMethod("POST");
+        return request;
+    }
+
+    public static Request addAttachment(String cardId, String url) {
+        Request request=baseTrelloRequest();
+        request.setPath("1/cards/" + cardId + "/attachments?key=" + KEY + "&token=" + TOKEN + "&url=" + url);
+        request.setMethod("POST");
+        return request;
+    }
+
+    public static Request addLabel(String cardId, String labelType) {
+        Request request=baseTrelloRequest();
+        request.setPath("1/cards/" + cardId + "/idLabels?key="+  KEY + "&token=" + TOKEN + "&value=" + labelType);
+        request.setMethod("POST");
+        return request;
+    }
+
+    public static Request getAttachment(String cardId) {
+        Request request=baseTrelloRequest();
+        request.setPath("1/cards/" + cardId + "?key=" + KEY + "&token=" + TOKEN + "&attachments=" + true);
+        request.setMethod("GET");
+        return request;
+    }
+
+    public static Request putAttachment(String cardId, String newUrl) {
+        Request request=baseTrelloRequest();
+        request.setPath("1/cards/" + cardId + "/attachments?key=" + KEY + "&token=" + TOKEN + "&url=" + newUrl);
+        request.setMethod("PUT");
         return request;
     }
 }
